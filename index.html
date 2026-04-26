@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Labyrinthe des Songes - Jeu d'évasion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-container">
+    <div class="game-panel">
+        <div class="stats-board">
+            <div class="stat-card"><span>🎯 SCORE</span> <span class="stat-value" id="scoreDisplay">0</span></div>
+            <div class="stat-card"><span>⏱️ TEMPS</span> <span class="stat-value" id="timerDisplay">0.00</span></div>
+            <div class="stat-card"><span>🏆 MEILLEUR</span> <span class="stat-value" id="bestTimeDisplay">—</span></div>
+        </div>
+
+        <div class="canvas-wrapper">
+            <canvas id="labyrinthCanvas" width="650" height="650"></canvas>
+        </div>
+
+        <div class="controls-info">
+            <i>⬆️ ⬇️ ⬅️ ➡️</i>
+            <i>🎮 Déplace le héros</i>
+            <i>⭐️ Atteins la sortie!</i>
+        </div>
+        <div>
+            <button id="resetGameBtn">⟳ NOUVELLE PARTIE</button>
+        </div>
+        <div id="victoryMessageArea" style="min-height: 65px;"></div>
+        <footer>✨ plus tu es rapide, meilleur est ton score ✨</footer>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
