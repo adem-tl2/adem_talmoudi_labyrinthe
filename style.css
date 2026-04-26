@@ -14,7 +14,7 @@ body {
     padding: 20px;
 }
 
-/* Container principal avec animation d'entrée */
+/* Container principal */
 .game-container {
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(3px);
@@ -37,7 +37,7 @@ body {
     }
 }
 
-/* zone principale jeu */
+/* Game panel */
 .game-panel {
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@ body {
     gap: 20px;
 }
 
-/* tableau de bord (score, timer, records) */
+/* Stats */
 .stats-board {
     display: flex;
     flex-wrap: wrap;
@@ -67,7 +67,11 @@ body {
     color: #ffecb3;
     font-weight: bold;
     letter-spacing: 1px;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
 }
 
 .stat-card span:first-child {
@@ -76,7 +80,6 @@ body {
     background: #ffb34730;
     padding: 3px 10px;
     border-radius: 30px;
-    display: inline-block;
     margin-right: 8px;
 }
 
@@ -85,10 +88,9 @@ body {
     font-weight: 800;
     color: #ffd966;
     text-shadow: 0 2px 5px #00000050;
-    font-family: 'Courier New', monospace;
 }
 
-/* canvas labyrinthe + animation */
+/* Canvas */
 .canvas-wrapper {
     background: #2c2118;
     border-radius: 32px;
@@ -101,16 +103,16 @@ canvas {
     margin: 0 auto;
     border-radius: 24px;
     cursor: pointer;
-    box-shadow: 0 0 0 3px #4a3b2c;
-    transition: filter 0.2s;
     background-color: #1f2a1b;
+    box-shadow: 0 0 15px rgba(255, 215, 150, 0.4);
+    transition: filter 0.2s ease;
 }
 
 canvas:active {
     filter: brightness(0.98);
 }
 
-/* contrôles info */
+/* Controls */
 .controls-info {
     display: flex;
     gap: 20px;
@@ -120,24 +122,18 @@ canvas:active {
     font-size: 0.9rem;
     font-weight: bold;
     color: #ffdd99;
-    backdrop-filter: blur(5px);
 }
 
 .controls-info i {
-    font-style: normal;
     background: #2c2c2c;
     padding: 5px 12px;
     border-radius: 40px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: inset 0 1px 2px #ffffff30, 0 2px 5px black;
 }
 
+/* Button */
 button {
     background: #f09d3c;
     border: none;
-    font-family: inherit;
     font-weight: bold;
     font-size: 1rem;
     padding: 10px 28px;
@@ -146,7 +142,11 @@ button {
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 5px 0 #784e1a;
-    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #ffb347;
 }
 
 button:active {
@@ -154,6 +154,7 @@ button:active {
     box-shadow: 0 2px 0 #784e1a;
 }
 
+/* Victory */
 .victory-message {
     background: gold;
     color: #1e3c2c;
@@ -161,24 +162,48 @@ button:active {
     padding: 12px 25px;
     border-radius: 60px;
     text-align: center;
-    animation: pulseGlow 0.6s infinite alternate;
+    animation: pulseGlow 0.6s infinite alternate, popIn 0.4s ease;
     font-size: 1.1rem;
 }
 
 @keyframes pulseGlow {
-    0% {
-        text-shadow: 0 0 0px white;
-        background: #ffd966;
+    0% { text-shadow: 0 0 0px white; }
+    100% { text-shadow: 0 0 6px yellow; }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
     }
-    100% {
-        text-shadow: 0 0 6px yellow;
-        background: #ffb347;
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
 }
 
+/* Footer */
 footer {
     font-size: 0.7rem;
     margin-top: 10px;
     color: #adad7d;
     text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .game-container {
+        transform: scale(0.9);
+        padding: 15px;
+    }
+
+    canvas {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .stats-board {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
