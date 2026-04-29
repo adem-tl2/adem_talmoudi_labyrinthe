@@ -6,31 +6,68 @@
     <title>Labyrinthe des Songes - Jeu d'évasion</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="game-container">
-    <div class="game-panel">
-        <div class="stats-board">
-            <div class="stat-card"><span>🎯 SCORE</span> <span class="stat-value" id="scoreDisplay">0</span></div>
-            <div class="stat-card"><span>⏱️ TEMPS</span> <span class="stat-value" id="timerDisplay">0.00</span></div>
-            <div class="stat-card"><span>🏆 MEILLEUR</span> <span class="stat-value" id="bestTimeDisplay">—</span></div>
+
+<!-- HEADER -->
+<header class="game-header">
+    <h1>🧩 Labyrinthe des Songes</h1>
+    <p>Atteins la sortie le plus rapidement possible</p>
+</header>
+
+<!-- MAIN GAME CONTAINER -->
+<main class="game-container">
+
+    <!-- STATS -->
+    <section class="stats-board">
+        <div class="stat-card">
+            <span>🎯 SCORE</span>
+            <span class="stat-value" id="scoreDisplay">0</span>
         </div>
+
+        <div class="stat-card">
+            <span>⏱️ TEMPS</span>
+            <span class="stat-value" id="timerDisplay">0.00</span>
+        </div>
+
+        <div class="stat-card">
+            <span>🏆 MEILLEUR</span>
+            <span class="stat-value" id="bestTimeDisplay">—</span>
+        </div>
+    </section>
+
+    <!-- GAME AREA -->
+    <section class="game-area">
 
         <div class="canvas-wrapper">
             <canvas id="labyrinthCanvas" width="650" height="650"></canvas>
         </div>
 
+        <!-- CONTROLS HELP -->
         <div class="controls-info">
-            <i>⬆️ ⬇️ ⬅️ ➡️</i>
-            <i>🎮 Déplace le héros</i>
-            <i>⭐️ Atteins la sortie!</i>
+            <i>⬆️⬇️⬅️➡️ Déplacement</i>
+            <i>🎮 Utilise ton clavier</i>
+            <i>⭐ Trouve la sortie</i>
         </div>
-        <div>
-            <button id="resetGameBtn">⟳ NOUVELLE PARTIE</button>
-        </div>
-        <div id="victoryMessageArea" style="min-height: 65px;"></div>
-        <footer>✨ plus tu es rapide, meilleur est ton score ✨</footer>
-    </div>
-</div>
+
+    </section>
+
+    <!-- ACTIONS -->
+    <section class="actions">
+        <button id="resetGameBtn">⟳ Nouvelle Partie</button>
+    </section>
+
+    <!-- VICTORY -->
+    <section id="victoryMessageArea" class="victory-area"></section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    ✨ Plus tu es rapide, meilleur est ton score ✨
+</footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>
